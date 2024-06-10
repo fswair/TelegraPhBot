@@ -1,7 +1,15 @@
+from dotenv import load_dotenv
+import os
 
-API_ID: int = None
-API_HASH: str = ""
-BOT_TOKEN: str = ""
+load_dotenv()
+
+# Public API Credentials
+API_ID: int = 5
+API_HASH: str = "1c5c96d5edd401b1ed40db3fb5633e2d"
+
+# Set this from .env file.
+# Also you can set API_ID and API_HASH as environment variable based.
+BOT_TOKEN: str = os.getenv("BOT_TOKEN")
 HELP_TEXT: str = """
 Merhaba {mention} >_
 Bu bot ile telegra.ph üzerine medya ve metin yükleyebilirsiniz. İşte botun kullanımı hakkında detaylı bilgiler:
