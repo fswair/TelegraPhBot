@@ -1,4 +1,4 @@
-pyrogram==2.0.106
+telethon
 TgCrypto
 Telegraph
 html_telegraph_poster
