@@ -1,10 +1,12 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
 [packages]
-telethon
-TgCrypto
-Telegraph
-html_telegraph_poster
-Pillow
-python-dotenv
+
+
+[dev-packages]
 
 [requires]
 python_version = "3.9"
