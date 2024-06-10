@@ -1,4 +1,4 @@
-https://github.com/KurimuzonAkuma/pyrogram/archive/dev.zip
+pyrogram==2.0.106
 TgCrypto
 Telegraph
 html_telegraph_poster
