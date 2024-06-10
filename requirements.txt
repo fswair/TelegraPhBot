@@ -1,6 +1,1 @@
-telethon
-TgCrypto
-Telegraph
-html_telegraph_poster
-Pillow
-python-dotenv
+
