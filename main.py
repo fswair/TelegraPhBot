@@ -3,11 +3,12 @@ from PIL import Image
 from telegraph import upload_file
 from telethon import TelegramClient, events
 from telethon.tl.types import Document, MessageMediaPhoto, MessageMediaDocument
-from config import API_ID, API_HASH, BOT_TOKEN, HELP_TEXT
+from config import API_ID, API_HASH, BOT_TOKEN, HELP_TEXT, STRING
 from utils import post_to_telegraph, buttons, run_sync
+from telethon.sessions import StringSession
 
 
-client = TelegramClient('telethon_bot', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
+client = TelegramClient(StringSession(STRING), API_ID, API_HASH).start(bot_token=BOT_TOKEN)
 
 @client.on(events.NewMessage(pattern='/start'))
 @client.on(events.NewMessage(pattern='/help'))
