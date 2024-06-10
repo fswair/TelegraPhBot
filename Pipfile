@@ -4,6 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+telethon
+TgCrypto
+Telegraph
+html_telegraph_poster
+Pillow
+python-dotenv
 
 
 [dev-packages]
