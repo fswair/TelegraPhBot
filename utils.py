@@ -4,46 +4,9 @@ import functools
 from typing import Any, Callable, TypeVar
 
 from html_telegraph_poster import TelegraphPoster
+from telethon.tl.custom import Button
 
-from pyrogram.types import (
-    User,
-    InlineKeyboardMarkup,
-    InlineKeyboardButton
-)
-
-
-def post_to_telegraph(
-    from_user: User,
-    title: str,
-    text: str
-) -> str:
-    post_client = TelegraphPoster(use_api=True)
-    post_client.create_api_token(from_user.full_name)
-    post_page = post_client.post(
-        title=title,
-        author=from_user.full_name,
-        author_url=f"https://t.me/{from_user.username}" if from_user.username else "https://t.me/Syupie",
-        text=text
-    )
-    return post_page["url"]
-
-
-def buttons(url: str) -> InlineKeyboardMarkup:
-    return InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton(
-                    text="Web Önizlemesi",
-                    url=url
-                ),
-                InlineKeyboardButton(
-                    text="Paylaş",
-                    url=f"https://t.me/share/url?url={url}"
-                )
-            ]
-        ]
-    )
-
+from telethon.tl.types import User
 
 Result = TypeVar("Result")
 
@@ -56,3 +19,26 @@ async def run_sync(
     return await loop.run_in_executor(
         None, functools.partial(func, *args, **kwargs)
     )
+
+def post_to_telegraph(
+    from_user: User,
+    title: str,
+    text: str
+) -> str:
+    post_client = TelegraphPoster(use_api=True)
+    post_client.create_api_token(from_user.first_name)
+    post_page = post_client.post(
+        title=title,
+        author=from_user.first_name,
+        author_url=f"https://t.me/{from_user.username}" if from_user.username else "https://t.me/Syupie",
+        text=text
+    )
+    return post_page["url"]
+
+def buttons(url: str):
+    return [
+        [
+            Button.url("Web Önizlemesi", url),
+            Button.url("Paylaş", f"https://t.me/share/url?url={url}")
+        ]
+    ]
