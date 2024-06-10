@@ -1,3 +1,6 @@
+import sys
+print(sys.version)
+
 import os
 from PIL import Image
 from telegraph import upload_file
